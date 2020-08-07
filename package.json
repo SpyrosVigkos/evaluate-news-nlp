@@ -13,14 +13,22 @@
   "license": "ISC",
   "description": "This repo is your starter code for the project. It is the same as the starter code we began with in lesson 2. Install and configure Webpack just as we did in the course. Feel free to refer to the course repo as you build this one, and remember to make frequent commits and to create and merge branches as necessary!",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.4",
-    "@babel/preset-env": "^7.5.4",
-    "babel-loader": "^8.0.6",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^4.2.1",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "sass-loader": "^9.0.3",
+    "style-loader": "^1.2.1",
+    "terser-webpack-plugin": "^4.0.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
