@@ -5,6 +5,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mockAPIResponse = require('./mockAPI.js')
 const app = express()
+const axios = require('axios');
 
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -20,7 +21,7 @@ app.use(express.static('dist'))
 console.log(__dirname)
 
 //API form MeaningCloud
-const textApi = API_KEY;
+const textApi = process.env.API_KEY;
 let baseURL = 'https://api.meaningcloud.com/sentiment-2.1';
 let lang = '&lang=en';
 
