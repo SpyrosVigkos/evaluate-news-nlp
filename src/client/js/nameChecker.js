@@ -2,7 +2,7 @@ function showResults(result) {
     // selecting the result container from DOM
 
 
-    document.getElementById("results").innerText = 
+    document.getElementById("results").innerHTML = 
     `<ul>
         <li>Agreement: ${result.agreement}</li>
         <li>Score_tag: ${result.score_tag}</li>
@@ -11,7 +11,7 @@ function showResults(result) {
         <li>Subjectivity: ${result.subjectivity}</li> 
     </ul>`;
 
-    console.log(resultText);
+   // console.log(resultText);
 
   
 }

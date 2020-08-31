@@ -20,7 +20,7 @@ function handleSubmit(event) {
     }).then(async function(){
         const sentiment = await fetch("http://localhost:8080/all");
         const sentimentJson = await sentiment.json();
-        Client.showResults(sentiment);
+        Client.showResults(sentimentJson);
         console.log(`Returning the ${sentiment}`);
         console.log(sentimentJson);
     });
