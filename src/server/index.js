@@ -33,28 +33,23 @@ app.get('/', function (req, res) {
    // res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
+let sentiment = {};
+
 app.post('/analyse', async(req, res) => {
     try {
         const analyse = await axios.post(`${baseURL}?key=${textApi}${lang}&txt=${req.body.formText}&model=general`);
 
         const { data } = analyse;
 
-        const { score_tag } = data;
-        const { agreement } = data;
-        const { subjectivity } = data;
-        const { confidence } = data;
-        const { irony } = data;
+        sentiment.score_tag = data.score_tag;
+        sentiment.agreement =data.agreement;
+        sentiment.subjectivity = data.subjectivity;
+        sentiment.confidence = data.confidence;
+        sentiment.irony = data.irony;
 
-        sentiment = {
-            score_tag,
-            agreement,
-            subjectivity,
-            confidence,
-            irony,
-        };
-
+        console.log(sentiment)
         res.send(sentiment);
-        console.log(data)
+       
 
     } catch (error) {
         console.log(`${error}`);
@@ -66,10 +61,10 @@ app.get("/all", (req, res) => {
     console.log(`returning => ${sentiment}`);
 });
 
-app.get("/all", (req, res) => {
-    res.send(sentiment);
-    console.log(`returning => ${sentiment}`);
-});
+// app.get("/all", (req, res) => {
+//     res.send(sentiment);
+//     console.log(`returning => ${sentiment}`);
+// });
 
 
 // designates what port the app will listen to for incoming requests

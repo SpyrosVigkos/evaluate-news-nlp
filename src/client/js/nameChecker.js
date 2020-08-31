@@ -2,7 +2,7 @@ function showResults(result) {
     // selecting the result container from DOM
 
 
-    const resultText = document.getElementById("results").innerHTML = 
+    document.getElementById("results").innerText = 
     `<ul>
         <li>Agreement: ${result.agreement}</li>
         <li>Score_tag: ${result.score_tag}</li>
