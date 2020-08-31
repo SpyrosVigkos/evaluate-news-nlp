@@ -22,7 +22,7 @@ function handleSubmit(event) {
     const sentiment = fetch("http://localhost:8080/all");
     const sentimentJson = sentiment.json();
 
-    console.log(`returning ${sentiment}`);
+    console.log(`Returning the ${sentiment}`);
     console.log(sentimentJson);
 
     

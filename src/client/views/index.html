@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <title>Test</title>
-        <script type="text/javascript" src="/src/client/index.js"></script>
+        <!-- <script type="text/javascript" src="/src/client/index.js"></script> -->
+        <script type="text/javascript" src="main.js"></script>
     </head>
 
     <body>
@@ -19,9 +20,9 @@
 
         <main>
             <section>
-                <form class="" onsubmit="return handleSubmit(event)">
+                <form class="" onsubmit="return Client.handleSubmit(event)">
                     <input id="name" type="text" name="input" value="" placeholder="Enter Text">
-                    <input type="submit" name="" value="submit" id="button" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                    <input type="submit" name="" value="submit" id="button" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             <section>
 

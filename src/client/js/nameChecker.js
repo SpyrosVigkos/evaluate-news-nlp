@@ -1,5 +1,7 @@
 function showResults(result) {
     // selecting the result container from DOM
+
+
     const resultText = document.getElementById("results").innerHTML = 
     `<ul>
         <li>Agreement: ${result.agreement}</li>
@@ -8,6 +10,8 @@ function showResults(result) {
         <li>Irony: ${result.irony}</li>
         <li>Subjectivity: ${result.subjectivity}</li> 
     </ul>`;
+
+    console.log(resultText);
 
   
 }
