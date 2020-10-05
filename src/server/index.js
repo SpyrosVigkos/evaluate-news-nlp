@@ -3,7 +3,6 @@ dotenv.config();
 var path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
-const mockAPIResponse = require('./mockAPI.js')
 const app = express()
 const axios = require('axios');
 
@@ -29,20 +28,24 @@ console.log(`Your API key is ${process.env.API_KEY}`);
 
 
 app.get('/', function (req, res) {
-     res.sendFile('dist/index.html');
-   // res.sendFile(path.resolve('src/client/views/index.html'))
+    res.sendFile('dist/index.html');
 })
 
+//Set an empty sentiment object to fullfil later with the Analysis form MeanCloud
 let sentiment = {};
 
 app.post('/analyse', async(req, res) => {
     try {
-        const analyse = await axios.post(`${baseURL}?key=${textApi}${lang}&txt=${req.body.formText}&model=general`);
 
+        // API call and store all data that comes form analysis of the test
+        const analyse = await axios.post(`${baseURL}?key=${textApi}${lang}&txt=${req.body.formText}&model=general`);
+        
+        //Store analysis to this object 
         const { data } = analyse;
 
+        //Store in Sentiment object the data from analysis 
         sentiment.score_tag = data.score_tag;
-        sentiment.agreement =data.agreement;
+        sentiment.agreement = data.agreement;
         sentiment.subjectivity = data.subjectivity;
         sentiment.confidence = data.confidence;
         sentiment.irony = data.irony;
@@ -61,28 +64,9 @@ app.get("/all", (req, res) => {
     console.log(`returning => ${sentiment}`);
 });
 
-// app.get("/all", (req, res) => {
-//     res.send(sentiment);
-//     console.log(`returning => ${sentiment}`);
-// });
 
 
-// designates what port the app will listen to for incoming requests
+// Define what port the app will listen to for incoming requests
 app.listen(8080, function () {
     console.log('Example app listening on port 8080!')
 })
-
-
-
-
-// app.post('/api', function (req, res) {
-//     console.log(req.body)
-//     res.send({})
-// })
-
-
-// app.get('/test', function (req, res) {
-
-
-//     res.send(mockAPIResponse)
-// })
