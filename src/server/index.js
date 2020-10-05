@@ -64,8 +64,6 @@ app.get("/all", (req, res) => {
     console.log(`returning => ${sentiment}`);
 });
 
-
-
 // Define what port the app will listen to for incoming requests
 app.listen(8080, function () {
     console.log('Example app listening on port 8080!')

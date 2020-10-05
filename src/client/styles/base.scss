@@ -1,11 +1,16 @@
 body {
     display: flex;
     flex-direction: column;
+    // background-image: url(../views/img/sentiment-analysis.png);
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
     min-height: 100vh;
 }
 
 main {
     flex: 2;
+    background-color: rgba(38, 199, 219, 0.5);
 }
 
 section {
