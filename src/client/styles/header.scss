@@ -2,10 +2,14 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 10px 40px;
-    
-
+    background-color: white;
+}
+.title-menu{
+    margin: auto 0;
 }
 
-.logo{ 
+.logo, .logo img{ 
+    height: 55px;
+    width: auto;
     margin: auto 0;
 }
