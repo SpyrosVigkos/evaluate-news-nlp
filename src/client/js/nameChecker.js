@@ -3,13 +3,39 @@ function showResults(result) {
 
 
     document.getElementById("results").innerHTML = 
-    `<ul>
-        <li>Agreement: ${result.agreement}</li>
-        <li>Score_tag: ${result.score_tag}</li>
-        <li>Confidence: ${result.confidence}%</li>
-        <li>Irony: ${result.irony}</li>
-        <li>Subjectivity: ${result.subjectivity}</li> 
-    </ul>`;
+
+    `
+    <table> 
+        <tr>
+            <th>Sentiment</th>
+            <th>Result</th>     
+        </tr>
+        <tr>
+            <td>Agreement Status</td>
+            <td>${result.agreement}</td>
+
+        </tr>
+        <tr>
+            <td>Score_tag</td>
+            <td>${result.score_tag}</td> 
+        </tr>
+        <tr>
+            <td>Confidence</td>
+            <td>${result.confidence}</td> 
+        </tr>
+        <tr>
+            <td>Irony</td> 
+            <td>${result.irony}</td> 
+        </tr>
+        <tr>
+            <td>Subjectivity</td>
+            <td>${result.subjectivity}</td> 
+        </tr>
+    </table>
+    `
+
+    
+    ;
 
    // console.log(resultText);
 

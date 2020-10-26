@@ -7,6 +7,8 @@ import './styles/form.scss'
 import './styles/header.scss'
 console.log("CHECK FOR NAME:::",checkForName);
 console.log("CHANGE!!");
+
+
 export{
     handleSubmit,
     checkForName,

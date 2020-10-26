@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 dotenv.config();
-var path = require('path')
+const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 const cors = require("cors")
 app.use(cors())
 
-
+//Initialize the project to distribution folder
 app.use(express.static('dist'))
 
 console.log(__dirname)
@@ -31,28 +31,24 @@ app.get('/', function (req, res) {
     res.sendFile('dist/index.html');
 })
 
-//Set an empty sentiment object to fullfil later with the Analysis form MeanCloud
-let sentiment = {};
+//Empty object as Endpoint
+let sentiment = {}; 
 
 app.post('/analyse', async(req, res) => {
     try {
 
         // API call and store all data that comes form analysis of the test
         const analyse = await axios.post(`${baseURL}?key=${textApi}${lang}&txt=${req.body.formText}&model=general`);
-        
-        //Store analysis to this object 
-        const { data } = analyse;
+        const {data} = analyse;
+        res.send(data);
 
-        //Store in Sentiment object the data from analysis 
-        sentiment.score_tag = data.score_tag;
-        sentiment.agreement = data.agreement;
-        sentiment.subjectivity = data.subjectivity;
-        sentiment.confidence = data.confidence;
-        sentiment.irony = data.irony;
-
-        console.log(sentiment)
-        res.send(sentiment);
-       
+        sentiment = {
+            score_tag : data.score_tag,
+            agreement : data.agreement,
+            subjectivity : data.subjectivity,
+            confidence : data.confidence,
+            irony : data.irony
+        }
 
     } catch (error) {
         console.log(`${error}`);
